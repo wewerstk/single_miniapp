@@ -11,29 +11,98 @@
       padding: 50px;
       background-color: var(--tg-theme-bg-color, #ffffff);
       color: var(--tg-theme-text-color, #000000);
+      
     }
     button {
       padding: 10px 20px;
       font-size: 16px;
     }
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .main .container__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+   
+    .img__wrap {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-top: 30px;
+    }
+
+    .main__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .menu__list-link{
+        display: inline-block;
+        padding: 15px 15px;
+        background-color: #6dc5e8;
+        border-radius: 25px;
+        color: #fff;
+        text-decoration: double;
+    }
   </style>
 </head>
 <body>
-
-  <h1>Hello, <span id="user_name">Guest</span>!</h1>
-  <button onclick="sendData()">Send something back</button>
+   
+    <header class="header">
+        <div class="container">
+            <div class="container__wrapper">
+                <nav class="menu_list">
+                    <ul class="menu__list">
+                        <li class="menu__list-item">
+                            <a href="#" class="menu__list-link">👾👾👾</a>
+                        </li>
+                    </ul>
+                </nav>
+                
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="container__wrapper">
+                <div class="img__wrap">
+                    <img src="https://cdn-edge.kwork.ru/files/avatar/large_r/21/3970618-7.jpg" alt="#" class="main__image">
+                </div>
+                <h1 class="about">ratmist</h1>
+                <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, explicabo modi. Fugiat quia numquam, ut earum quo dicta! Eaque dolorum veritatis quas nam ea consectetur, unde error eos sed enim.</p>
+            </div>
+        </div>
+    </main>
+  <!-- <h1>Hello, <span id="user_name">Guest</span>!</h1>
+  <button onclick="sendData()">Send something back</button> -->
 
   <script>
     const tg = window.Telegram.WebApp;
-    tg.expand();  // Make the Mini App fullscreen
+    tg.expand();  
 
-    // Display user's first name
     const user = tg.initDataUnsafe.user;
     if (user) {
       document.getElementById('user_name').innerText = user.first_name;
     }
 
-    // Function to send data back to bot
     function sendData() {
       tg.sendData("User clicked the button!");
     }
